@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ include "ci-cd-workshop.fullname" . }}
+spec:
+  rules:
+  - http:
+      paths:
+      - backend:
+          service:
+            name: {{ include "ci-cd-workshop.fullname" . }}
+            port:
+              number: 80
+        path: /
+        pathType: Exact

@@ -1,0 +1,14 @@
+apiVersion: v2
+name: ci-cd-workshop
+description: A Helm chart for deploying the ci-cd-workshop app
+version: 0.1.0
+maintainers:
+  - name: FlyingDogFood
+    url: https://github.com/flyingdogfood/
+appVersion: 0.1.0
+keywords:
+  - ci-cd-workshop
+home: https://github.com/flyingdogfood/ci-cd-workshop
+## icon: https://example.com/mychart-icon.png
+sources:
+  - https://github.com/flyingdogfood/ci-cd-workshop

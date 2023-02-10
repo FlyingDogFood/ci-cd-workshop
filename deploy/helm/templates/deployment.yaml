@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "ci-cd-workshop.fullname" . }}
+  labels:
+    {{- include "ci-cd-workshop.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.deployment.replicas }}
+  selector:
+    matchLabels:
+      {{- include "ci-cd-workshop.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "ci-cd-workshop.labels" . | nindent 8 }}
+    spec:
+      containers:
+      - name: ci-cd-workshop
+        image: {{ .Values.deployment.image }}:{{ .Values.deployment.imageTag | default .Chart.AppVersion }}
+        ports:
+        - containerPort: 8080
+        
